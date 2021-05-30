@@ -28,28 +28,28 @@ namespace DirectorgBaze.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Director>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllDirectors()
+        public async Task<ActionResult<IEnumerable<Director>>> GetAllDirectors()
         {
             return Ok(await _directorRepository.GetAllDirectors());
         }
 
         [HttpGet]
         [ProducesResponseType(typeof(Director), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> GetDirectorByEmail([FromRoute] string email)
+        public async Task<ActionResult<Director>> GetDirectorByEmail([FromQuery] string email)
         {
             return Ok(await _directorRepository.GetDirectorByEmail(email));
         }
 
         [HttpGet]
         [ProducesResponseType(typeof(Director), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> GetDirectorById([FromRoute] string id)
+        public async Task<ActionResult<Director>> GetDirectorById([FromQuery] string id)
         {
             return Ok(await _directorRepository.GetDirectorById(id));
         }
 
         [HttpPut]
         [ProducesResponseType(typeof(Director), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> UpdateDirector([FromBody] Director director)
+        public async Task<ActionResult<Director>> UpdateDirector([FromBody] Director director)
         {
             return Ok(await _directorRepository.UpdateDirector(director));
         }

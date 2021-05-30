@@ -37,14 +37,14 @@ namespace DirectorgBaze.Controllers
             
         [HttpGet]
         [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> GetUserByEmail([FromRoute]string email)
+        public async Task<ActionResult<User>> GetUserByEmail([FromQuery] string email)
         {
             return Ok(await _repository.GetUserByEmail(email));
         }
 
         [HttpGet]
         [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> GetUserById([FromRoute] string id)
+        public async Task<ActionResult<User>> GetUserById([FromQuery] string id)
         {
             return Ok(await _repository.GetUserById(id));
         }
