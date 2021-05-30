@@ -22,7 +22,7 @@ namespace DirectorgBaze.Models
 
         public string Type { get; set; }
 
-        public bool Grade{ get; set; }
+        public double Grade{ get; set; }
 
         public string Status { get; set; }
 

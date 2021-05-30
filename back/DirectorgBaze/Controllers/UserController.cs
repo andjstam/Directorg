@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DirectorgBaze.Repository;
 using System.Net;
+using DirectorgBaze.Models;
 
 namespace DirectorgBaze.Controllers
 {
@@ -13,20 +14,47 @@ namespace DirectorgBaze.Controllers
     public class UserController : ControllerBase
     {
        
-            private readonly ILoggedUserRepository _repository;
+        private readonly IUserRepository _repository;
 
-            public UserController(ILoggedUserRepository repository)
-            {
-                _repository = repository;
-            }
-
-            [HttpGet]
-            [ProducesResponseType(typeof(IEnumerable<LoggedUserController>), (int)HttpStatusCode.OK)]
-            public async Task<ActionResult<IEnumerable<LoggedUserController>>> GetProducts()
-            {
-                var products = await _repository.GetLoggedUsers();
-                return Ok(products);
-            }
+        public UserController(IUserRepository repository)
+        {
+            _repository = repository;
         }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<User>> AddUser([FromBody]User user)
+        {
+            return Ok(await _repository.AddUser(user));
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<User>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        {
+            return Ok(await _repository.GetAllUsers());
+        }
+            
+        [HttpGet]
+        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<User>> GetUserByEmail([FromQuery] string email)
+        {
+            return Ok(await _repository.GetUserByEmail(email));
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<User>> GetUserById([FromQuery] string id)
+        {
+            return Ok(await _repository.GetUserById(id));
+        }
+
+        [HttpPut]
+        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<User>> UpdateUser([FromBody] User user)
+        {
+            return Ok(await _repository.UpdateUser(user));
+        }
+    }
     
 }
