@@ -234,3 +234,4 @@ C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debu
 C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.dll
 C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.pdb
 C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.genruntimeconfig.cache
+C:\Users\Andjela\source\repos\DirectorgBaze\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.csproj.AssemblyReference.cache

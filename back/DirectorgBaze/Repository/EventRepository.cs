@@ -24,14 +24,15 @@ namespace DirectorgBaze.Repository
         }
 
         //EVENT
-        public async Task AddEvent(Event newEvent)
+        public async Task<Event> AddEvent(Event newEvent)
         {
             await _eventCollection.InsertOneAsync(newEvent);
+            return newEvent;
         }
 
-        public async Task<bool> DeleteEvent(Event ev)
+        public async Task<bool> DeleteEvent(string idEvent)
         {
-            FilterDefinition<Event> filter = Builders<Event>.Filter.Eq(e => e.Id, ev.Id);
+            FilterDefinition<Event> filter = Builders<Event>.Filter.Eq(e => e.Id, idEvent);
             DeleteResult deleteResult = await _eventCollection
                                               .DeleteOneAsync(filter);
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
@@ -50,22 +51,21 @@ namespace DirectorgBaze.Repository
                             .ToListAsync();
         }
 
-        public async Task<bool> UpdateEvent(Event newEvent)
+        public async Task<Event> UpdateEvent(Event newEvent)
         {
-            ReplaceOneResult updateResult =
-                 await _eventCollection
-                         .ReplaceOneAsync(
+            
+            return await _eventCollection
+                         .FindOneAndReplaceAsync(
                              filter: e => e.Id == newEvent.Id,
                              replacement: newEvent);
-
-            return updateResult.IsAcknowledged && updateResult.ModifiedCount > 0;
         }
 
         //EVENTSIGNED
-        public async Task AddEventSigned(EventSignedEmployed newEventSigned)
+        public async Task<EventSignedEmployed> AddEventSigned(EventSignedEmployed newEventSigned)
         {
             await _eventSignedCollection
                     .InsertOneAsync(newEventSigned);
+            return newEventSigned;
 
         }
 
@@ -78,13 +78,6 @@ namespace DirectorgBaze.Repository
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
         }
 
-        public async Task<IEnumerable<EventSignedEmployed>> GetAllEventSignedForUser(string userId)
-        {
-            return await _eventSignedCollection
-                            .Find(ev => ev.UserId == userId)
-                            .ToListAsync();
-        }
-
         public async Task<IEnumerable<EventSignedEmployed>> GetAllEventsSigned()
         {
             return await _eventSignedCollection
@@ -92,11 +85,20 @@ namespace DirectorgBaze.Repository
                          .ToListAsync();
         }
 
+        public async Task<IEnumerable<EventSignedEmployed>> GetAllEventsSignedForUser(string userId)
+        {
+            return await _eventSignedCollection
+                            .Find(ev => ev.UserId == userId)
+                            .ToListAsync();
+        }
+
         //EVENTEMPLYED
-        public async Task AddEventEmplyed(EventSignedEmployed newEventEmplyed)
+        public async Task<EventSignedEmployed> AddEventEmplyed(EventSignedEmployed newEventEmplyed)
         {
             await _eventEmployedCollection
                     .InsertOneAsync(newEventEmplyed);
+            return newEventEmplyed;
+        
         }
         public async Task<bool> DeleteEventEmplyed(string idEventEmplyed)
         {
@@ -107,7 +109,7 @@ namespace DirectorgBaze.Repository
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
         }
 
-        public async Task<IEnumerable<EventSignedEmployed>> GetAllEventEmployedForUser(string userId)
+        public async Task<IEnumerable<EventSignedEmployed>> GetAllEventsEmployedForUser(string userId)
         {
             return await _eventEmployedCollection
                             .Find(ev => ev.UserId == userId)
