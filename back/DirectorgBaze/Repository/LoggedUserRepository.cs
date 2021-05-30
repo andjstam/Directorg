@@ -7,7 +7,6 @@ using DirectorgBaze.Models;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Driver.Linq;
-//using MongoDB.Driver.Builders;
 
 namespace DirectorgBaze.Repository
 {
@@ -15,31 +14,40 @@ namespace DirectorgBaze.Repository
     {
 
         private readonly IDirectorgDBContex _context;
+        private readonly IMongoCollection<LoggedUser> _collection;
 
         public LoggedUserRepository(IDirectorgDBContex context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _collection = _context.loggedUsersCollection;
         }
 
         public async Task<IEnumerable<LoggedUser>> GetLoggedUsers()
         {
-            return await _context
-                            .loggedUsersCollection
+            return await _collection
                             .Find(p => true)
                             .ToListAsync();
         }
 
         public async Task<LoggedUser> CheckIfLoginValid(string email, string password)
         {
-            //FilterDefinition<LoggedUser> logInFilter = $"{{ Email:  {email},  Password: { password }}}";
             var builder = Builders<LoggedUser>.Filter;
             var filter = builder.Eq(p => p.Email, email) & builder.Eq(p => p.Password, password);
 
-            return await _context
-                          .loggedUsersCollection
+            return await _collection
                           .Find(filter)
                           .FirstOrDefaultAsync();
+        }
 
+        public async Task<LoggedUser> GetUserByEmail(string email)
+        {
+            return await _collection
+                          .Find(u => u.Email == email)
+                          .FirstOrDefaultAsync();
+        }
+        public async Task AddLoggedUser(LoggedUser loggedUser)
+        {
+            await _collection.InsertOneAsync(loggedUser);
         }
     }
 }

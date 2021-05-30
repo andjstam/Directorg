@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DirectorgBaze.Repository;
-using System.Net;
+using DirectorgBaze.Models;
 
 namespace DirectorgBaze.Controllers
 { 
@@ -20,19 +21,36 @@ namespace DirectorgBaze.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<LoggedUserController>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<LoggedUserController>>> GetLoggedUsers()
+        [ProducesResponseType(typeof(IEnumerable<LoggedUser>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<LoggedUser>>> GetLoggedUsers()
         {
             var products = await _repository.GetLoggedUsers();
             return Ok(products);
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<LoggedUserController>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<LoggedUserController>>> CheckIfLoginValid(string email, string password) //checkIfUserValid iz frontend projekta
+        [ProducesResponseType(typeof(IEnumerable<LoggedUser>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<LoggedUser>>> CheckIfLoginValid(string email, string password) //checkIfUserValid iz frontend projekta
         {
             var products = await _repository.CheckIfLoginValid(email, password);
             return Ok(products);
         }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<LoggedUser>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<LoggedUser>>> GetUserByEmail(string email)
+        {
+            var products = await _repository.GetUserByEmail(email);
+            return Ok(products);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<LoggedUser>> AddLoggedUser([FromBody] LoggedUser user)
+        {
+            await _repository.AddLoggedUser(user);
+            return new OkObjectResult(user);
+        }
+
+
     }
 }

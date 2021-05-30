@@ -13,6 +13,8 @@ namespace DirectorgBaze.DBContext
         IMongoCollection<Director> directorsCollection { get; }
         IMongoCollection<User> usersCollection { get; }
         IMongoCollection<Event> eventsCollection { get; }
+        IMongoCollection<EventSignedEmployed> eventsSignedCollection { get; }
+        IMongoCollection<EventSignedEmployed> eventsEmployedCollection { get; }
 
     }
 }

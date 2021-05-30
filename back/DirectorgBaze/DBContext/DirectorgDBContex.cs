@@ -25,5 +25,9 @@ namespace DirectorgBaze.DBContext
         public IMongoCollection<User> usersCollection => _db.GetCollection<User>("Users");
 
         public IMongoCollection<Event> eventsCollection => _db.GetCollection<Event>("Events");
+
+        public IMongoCollection<EventSignedEmployed> eventsSignedCollection => _db.GetCollection<EventSignedEmployed>("EventsSigned");
+
+        public IMongoCollection<EventSignedEmployed> eventsEmployedCollection => _db.GetCollection<EventSignedEmployed>("EventsEmployed");
     }
 }

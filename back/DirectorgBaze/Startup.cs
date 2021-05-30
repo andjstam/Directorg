@@ -32,6 +32,7 @@ namespace DirectorgBaze
             
             services.AddScoped<IDirectorgDBContex, DirectorgDBContex>();
             services.AddScoped<ILoggedUserRepository, LoggedUserRepository>();
+            services.AddScoped<IEventRepository, EventRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "back", Version = "v1" });

@@ -8,8 +8,13 @@ namespace DirectorgBaze.Repository
 {
     public interface ILoggedUserRepository
     {
-        Task<IEnumerable<LoggedUser>> GetLoggedUsers();
-        Task<LoggedUser> CheckIfLoginValid(string email, string password);
+        Task<IEnumerable<LoggedUser>> GetLoggedUsers();  //GetAllUsers
+
+        Task<LoggedUser> CheckIfLoginValid(string email, string password); //CheckIfUserValid
+
+        Task<LoggedUser> GetUserByEmail(string email);
+
+        Task AddLoggedUser(LoggedUser loggedUser);
 
         //Task<LoggedUser> GetLoggedUser(string id);
         //Task<LoggedUser> GetLoggedUserByEmail(string email);
