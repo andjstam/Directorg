@@ -29,21 +29,14 @@ namespace DirectorgBaze
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            
             services.AddScoped<IDirectorgDBContex, DirectorgDBContex>();
             services.AddScoped<ILoggedUserRepository, LoggedUserRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "back", Version = "v1" });
             });
-
-            //services.ConfigureSwaggerGen(c => { //<-- NOTE 'Add' instead of 'Configure'
-            //    c.SwaggerDoc("v3", new OpenApiInfo
-            //    {
-            //        Title = "GTrackAPI",
-            //        Version = "v3"
-            //    });
-            //});
+            services.AddControllers();
 
         }
 

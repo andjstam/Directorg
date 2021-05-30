@@ -6,6 +6,8 @@ using DirectorgBaze.DBContext;
 using DirectorgBaze.Models;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Driver.Linq;
+//using MongoDB.Driver.Builders;
 
 namespace DirectorgBaze.Repository
 {
@@ -27,19 +29,17 @@ namespace DirectorgBaze.Repository
                             .ToListAsync();
         }
 
-        /*public async Task<Product> GetProduct(string id)
+        public async Task<LoggedUser> CheckIfLoginValid(string email, string password)
         {
+            //FilterDefinition<LoggedUser> logInFilter = $"{{ Email:  {email},  Password: { password }}}";
+            var builder = Builders<LoggedUser>.Filter;
+            var filter = builder.Eq(p => p.Email, email) & builder.Eq(p => p.Password, password);
+
             return await _context
-                           .Products
-                           .Find(p => p.Id == id)
-                           .FirstOrDefaultAsync();
+                          .loggedUsersCollection
+                          .Find(filter)
+                          .FirstOrDefaultAsync();
+
         }
-        public async Task<IEnumerable<Product>> GetProductByName(string name)
-        {
-            FilterDefinition<Product> filter = Builders<Product>.Filter.ElemMatch(p => p.Name, name); return await _context
-                             .Products
-                             .Find(filter)
-                             .ToListAsync();
-        }*/
     }
 }

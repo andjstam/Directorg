@@ -21,9 +21,17 @@ namespace DirectorgBaze.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LoggedUserController>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<LoggedUserController>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<LoggedUserController>>> GetLoggedUsers()
         {
             var products = await _repository.GetLoggedUsers();
+            return Ok(products);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<LoggedUserController>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<LoggedUserController>>> CheckIfLoginValid(string email, string password) //checkIfUserValid iz frontend projekta
+        {
+            var products = await _repository.CheckIfLoginValid(email, password);
             return Ok(products);
         }
     }
