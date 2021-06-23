@@ -53,5 +53,12 @@ namespace DirectorgBaze.Controllers
         {
             return Ok(await _directorRepository.UpdateDirector(director));
         }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<bool>> DeleteEventEmployed(string id)
+        {
+            return Ok(await _directorRepository.DeleteDirector(id));
+        }
     }
 }

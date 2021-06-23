@@ -43,7 +43,7 @@ namespace DirectorgBaze.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Event>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<Event>> GetEventsByDirectorsId([FromQuery] string directorsId)
+        public async Task<ActionResult<IEnumerable<Event>>> GetEventsByDirectorsId([FromQuery] string directorsId)
         {
             return Ok(await _repository.GetEventsByDirectorsId(directorsId));
         }

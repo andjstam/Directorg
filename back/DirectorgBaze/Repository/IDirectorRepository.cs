@@ -13,5 +13,6 @@ namespace DirectorgBaze.Repository
         Task<Director> GetDirectorById(string id);
         Task<Director> UpdateDirector(Director director);
         Task<IEnumerable<Director>> GetAllDirectors();
+        Task<bool> DeleteDirector(string idDirector);
     }
 }

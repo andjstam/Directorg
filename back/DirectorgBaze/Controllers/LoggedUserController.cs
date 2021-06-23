@@ -30,7 +30,7 @@ namespace DirectorgBaze.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LoggedUser>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<LoggedUser>>> CheckIfLoginValid(string email, string password) //checkIfUserValid iz frontend projekta
+        public async Task<ActionResult<IEnumerable<LoggedUser>>> CheckIfLoginValid([FromQuery(Name = "email")] string email, [FromQuery(Name = "password")] string password) //checkIfUserValid iz frontend projekta
         {
             var products = await _repository.CheckIfLoginValid(email, password);
             return Ok(products);
@@ -49,6 +49,13 @@ namespace DirectorgBaze.Controllers
         {
             await _repository.AddLoggedUser(user);
             return new OkObjectResult(user);
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<bool>> DeleteLoggedUser(string id)
+        {
+            return Ok(await _repository.DeleteLoggedUser(id));
         }
 
 

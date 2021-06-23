@@ -13,5 +13,6 @@ namespace DirectorgBaze.Repository
         Task<User> GetUserById(string id);
         Task<User> UpdateUser(User user);
         Task<IEnumerable<User>> GetAllUsers();
+        Task<bool> DeleteUser(string idUser);
     }
 }

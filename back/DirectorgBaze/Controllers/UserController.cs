@@ -55,6 +55,13 @@ namespace DirectorgBaze.Controllers
         {
             return Ok(await _repository.UpdateUser(user));
         }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<bool>> DeleteUser(string id)
+        {
+            return Ok(await _repository.DeleteUser(id));
+        }
     }
     
 }

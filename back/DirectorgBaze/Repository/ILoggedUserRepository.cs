@@ -15,6 +15,7 @@ namespace DirectorgBaze.Repository
         Task<LoggedUser> GetUserByEmail(string email);
 
         Task AddLoggedUser(LoggedUser loggedUser);
+        Task<bool> DeleteLoggedUser(string idLoggedUser);
 
         //Task<LoggedUser> GetLoggedUser(string id);
         //Task<LoggedUser> GetLoggedUserByEmail(string email);

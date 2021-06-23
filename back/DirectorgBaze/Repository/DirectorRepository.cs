@@ -23,6 +23,15 @@ namespace DirectorgBaze.Repository
             return director;
         }
 
+        public async Task<bool> DeleteDirector(string idDirector)
+        {
+            FilterDefinition<Director> filter = Builders<Director>.Filter.Eq(e => e.Id, idDirector);
+            DeleteResult deleteResult = await _context.directorsCollection
+                                              .DeleteOneAsync(filter);
+
+            return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
+        }
+
         public async Task<IEnumerable<Director>> GetAllDirectors()
         {
             return await _context

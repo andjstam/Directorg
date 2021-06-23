@@ -49,5 +49,14 @@ namespace DirectorgBaze.Repository
         {
             await _collection.InsertOneAsync(loggedUser);
         }
+
+        public async Task<bool> DeleteLoggedUser(string idLoggedUser)
+        {
+            FilterDefinition<LoggedUser> filter = Builders<LoggedUser>.Filter.Eq(e => e.Id, idLoggedUser);
+            DeleteResult deleteResult = await _collection
+                                              .DeleteOneAsync(filter);
+
+            return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
+        }
     }
 }

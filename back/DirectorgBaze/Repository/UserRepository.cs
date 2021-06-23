@@ -25,6 +25,15 @@ namespace DirectorgBaze.Repository
             return user;
         }
 
+        public async Task<bool> DeleteUser(string idUser)
+        {
+            FilterDefinition<User> filter = Builders<User>.Filter.Eq(e => e.Id, idUser);
+            DeleteResult deleteResult = await _context.usersCollection
+                                                .DeleteOneAsync(filter);
+     
+            return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
+        }
+
         public async Task<IEnumerable<User>> GetAllUsers()
         {
             return await _context

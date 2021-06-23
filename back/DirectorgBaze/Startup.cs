@@ -69,6 +69,8 @@ namespace DirectorgBaze
 
             app.UseRouting();
 
+            app.UseCors("CORS");
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

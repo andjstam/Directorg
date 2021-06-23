@@ -22,7 +22,7 @@ namespace DirectorgBaze.Models
         public int UserCount { get; set; }
 
         //strani kljuc??
-        [BsonRepresentation(BsonType.ObjectId)]
+        //[BsonRepresentation(BsonType.ObjectId)]
         public string DirectorId { get; set; }
 
 
