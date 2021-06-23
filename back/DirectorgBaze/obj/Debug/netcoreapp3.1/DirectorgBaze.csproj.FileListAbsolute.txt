@@ -234,6 +234,9 @@ C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debu
 C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.dll
 C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.pdb
 C:\Users\455g7\Desktop\NBP_projekat_Gorana\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.genruntimeconfig.cache
+<<<<<<< HEAD
+C:\Users\Andjela\source\repos\DirectorgBaze\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.csproj.AssemblyReference.cache
+=======
 C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\bin\Debug\netcoreapp3.1\snappy32.dll
@@ -349,3 +352,4 @@ C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\obj\Debug\netcorea
 C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.dll
 C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.pdb
 C:\Users\mihaj\Desktop\Directorg\Directorg\back\DirectorgBaze\obj\Debug\netcoreapp3.1\DirectorgBaze.genruntimeconfig.cache
+>>>>>>> e2e2a52a7b218526a15a2258f8308b06094b6f5d
