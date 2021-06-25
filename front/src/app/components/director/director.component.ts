@@ -17,7 +17,6 @@ import { LoadAllEventsEmployed } from 'src/app/store/actions/events-employed.act
   styleUrls: ['./director.component.css']
 })
 export class DirectorComponent implements OnInit {
-
   user$=this.store.pipe(
     select(selectLoggedUser),
     filter(val => val !== undefined)
@@ -34,9 +33,11 @@ export class DirectorComponent implements OnInit {
     this.user$.subscribe(
       user => this.store.dispatch(new NeedDirectorInfo(user.email))
     )
+
     this.director$.subscribe( director =>{
       this.store.dispatch(new LoadDirectorsEvents(director.id))
     })
+    
     this.store.dispatch(new LoadAllUsers());
     this.store.dispatch(new LoadEventsSignedUp);
     this.store.dispatch(new LoadAllEventsEmployed)
