@@ -12,73 +12,67 @@ import { EventSignedEmplyed, IEventSignedEmployed } from '../models/EventSignedE
   providedIn: 'root'
 })
 export class UserService {
+
   private baseUrl=environmentVariables.JSON_API_URL;
+  private backUrl=environmentVariables.BACK_URL;
 
   constructor(private http: HttpClient) { }
 
   getUserByEmail(email: string): Observable<IUser>{
-    let url=this.baseUrl+`/user?email=${email}`;
-    return this.http.get<IUser>(url).pipe(
-      map(u => u[0])
-    );
+    let url=this.backUrl+`User/GetUserByEmail?email=${email}`;
+    return this.http.get<IUser>(url);
   }
 
-  updateUser(idUser: number, user: User): Observable<IUser>{
-    let url=this.baseUrl+`/user/${idUser}`;
-    return this.http.put<IUser>(url,user) .pipe(
-      map(u => u[0])
-    );
+  updateUser(user: User): Observable<IUser>{
+    let url=this.backUrl+`User/UpdateUser`;
+    return this.http.put<IUser>(url,user)
   }
 
   getAllEvents(): Observable<IEvent[]>{
-    let url=this.baseUrl+"/event";
+    let url=this.backUrl+`Event/GetAllEvents`;
     return this.http.get<IEvent[]>(url);
   }
 
   getAllEventSigned(): Observable<IEventSignedEmployed[]>{
-    let url=this.baseUrl+"/eventSignedUp";
+    let url=this.backUrl+`Event/GetAllEventsSigned`;
     return this.http.get<IEventSignedEmployed[]>(url);
   }
 
-  getAllEventSignedForUser( idUser: number): Observable<IEventSignedEmployed[]>{
-    let url=this.baseUrl+ `/eventSignedUp?user=${idUser}`;
+  getAllEventSignedForUser( idUser: string): Observable<IEventSignedEmployed[]>{
+    let url=this.backUrl+`Event/GetAllEventsSignedForUser?userId=${idUser}`;
     return this.http.get<IEventSignedEmployed[]>(url);
   }
 
   postEventSigned( eventSigned: EventSignedEmplyed): Observable<IEventSignedEmployed>{
-    let url=this.baseUrl+"/eventSignedUp";
+    let url=this.backUrl+`Event/AddEventSigned`;
     return this.http.post<IEventSignedEmployed>(url,eventSigned);
   }
 
-  deletEventSigned(idObjekta: number): Observable<IEventSignedEmployed>{
-    let url=this.baseUrl+`/eventSignedUp/${idObjekta}`;
+  deletEventSigned(idObjekta: string): Observable<IEventSignedEmployed>{
+    let url=this.backUrl+`Event/DeleteEventSigned?id=${idObjekta}`;
     return this.http.delete<IEventSignedEmployed>(url);
   }
 
   getAllEventsEmployed(): Observable<IEventSignedEmployed[]>{
-    let url=this.baseUrl+"/eventEmployed";
+    let url=this.backUrl+`Event/GetAllEventsEmployed`;
     return this.http.get<IEventSignedEmployed[]>(url);
   }
 
-  getAllEventEmployedForUser( idUser: number): Observable<IEventSignedEmployed[]>{
-    let url=this.baseUrl+ `/eventEmployed?user=${idUser}`;
+  getAllEventEmployedForUser( idUser: string): Observable<IEventSignedEmployed[]>{
+    let url=this.backUrl+ `Event/GetAllEventsEmployedForUsered?userId=${idUser}`;
     return this.http.get<IEventSignedEmployed[]>(url);
   }
 
- 
   postEventEmployed( eventEmployed: EventSignedEmplyed): Observable<IEventSignedEmployed>{
-    let url=this.baseUrl+"/eventEmployed";
+    let url=this.backUrl+"Event/AddEventEmployed";
     return this.http.post<IEventSignedEmployed>(url,eventEmployed);
   }
 
-  deletEventEmployed(idObjekta: number): Observable<IEventSignedEmployed>{
-    let url=this.baseUrl+`/eventEmployed/${idObjekta}`;
+  deletEventEmployed(idObjekta: string): Observable<IEventSignedEmployed>{
+    let url=this.backUrl+`Event/DeleteEventEmployed?id=${idObjekta}`;
     return this.http.delete<IEventSignedEmployed>(url);
   }
 
-  // deleteEventSigned( eventSigned: EventSignedEmplyed): Observable<IEventSignedEmployed>{
-  //   let url=this.baseUrl+"/eventSignedUp/eventSignedUp";
-  //   return this.http.delete<IEventSignedEmployed>();
-  // }
+  
 
 }

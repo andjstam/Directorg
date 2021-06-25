@@ -24,7 +24,7 @@ export class LoadAllEventsSuccess implements Action {
 
 export class LoadDirectorsEvents implements Action {
   readonly type = EventActionTypes.LOAD_DIRECTORS_EVENTS;
-  constructor(public directorId : number) {}
+  constructor(public directorId : string) {}
 }
 
 export class LoadDirectorsEventsSuccess implements Action {

@@ -23,8 +23,8 @@ export class ProfileDirectorComponent implements OnInit {
   allUsers: User[]=[];
   signedUsers: User[]=[];
   objectSignedEvents: EventSignedEmplyed[]=[];
-  idsSignedUsers: number[]=[];
-  idEvent:number;
+  idsSignedUsers: string[]=[];
+  idEvent:string;
 
   displayEventModal:boolean;
   allEvents: Event[] = [];
@@ -99,8 +99,8 @@ export class ProfileDirectorComponent implements OnInit {
     this.idsSignedUsers=[];
 
     this.objectSignedEvents.forEach(object => {
-      if(object.event===this.idEvent)
-        this.idsSignedUsers.push(object.user)
+      if(object.eventId===this.idEvent)
+        this.idsSignedUsers.push(object.userId)
     });
 
     if(this.idsSignedUsers.length){

@@ -1,6 +1,6 @@
 
 export interface IEvent {
-    id?: number;
+    id?: string;
     name: string;
     description: string;
     userType: string;
@@ -9,7 +9,7 @@ export interface IEvent {
 }
 
 export class Event implements IEvent{
-    id: number;
+    id: string;
     name: string;
     description: string;
     userType: string;

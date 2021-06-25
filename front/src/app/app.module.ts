@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import {MatToolbarModule} from '@angular/material/toolbar';
-// import {MatInputModule} from '@angular/material/input';
-// import {MatFormFieldModule} from '@angular/material/form-field';
-// import {MatButtonModule} from '@angular/material/button'; 
-// import {MatRadioModule} from '@angular/material/radio';
-// import {MatSelectModule} from '@angular/material/select';
-// import {MatCardModule} from '@angular/material/card'; 
-// import {MatDividerModule} from '@angular/material/divider'; 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card'; 
+import {MatDividerModule} from '@angular/material/divider'; 
 
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginComponent } from './components/login/login.component'; 
@@ -61,15 +61,15 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    //MatToolbarModule,
-    // MatInputModule,
-    // MatFormFieldModule,
-    // ReactiveFormsModule,
-    // MatButtonModule,
-    // MatRadioModule,
-    // MatSelectModule,
-    // MatCardModule,
-    // MatDividerModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AuthEffects,

@@ -80,7 +80,8 @@ export class RegistrationComponent implements OnInit {
       }
       else{
         this.registerUser(email.value, password.value, this.selectedRadio);
-        let regKorisnik= new User(ime.value, prezime.value,email.value, tip,"","","");
+        let regKorisnik= new User(ime.value, prezime.value,email.value, tip, 0, "slobodan","");
+        //console.log(regKorisnik);
         this.authService.postRegisterUser(regKorisnik)
         .subscribe(value => {
           alert(`Uspešno registrovan ${tip} ${regKorisnik.email}!`)

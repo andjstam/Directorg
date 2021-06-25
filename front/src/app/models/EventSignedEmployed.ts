@@ -1,17 +1,17 @@
 export interface IEventSignedEmployed {
-    id: number;
-    event: number;
-    user: number;
+    id: string;
+    eventId: string;
+    userId: string;
 }
 
 export class EventSignedEmplyed implements IEventSignedEmployed{
-    id: number;
-    event: number;
-    user: number;
+    id: string;
+    eventId: string;
+    userId: string;
 
-    constructor(idEvent: number, idUser: number){
-        this.event=idEvent;
-        this.user=idUser;
+    constructor(idEvent: string, idUser: string){
+        this.eventId=idEvent;
+        this.userId=idUser;
     }
 
 }

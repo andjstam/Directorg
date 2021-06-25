@@ -47,7 +47,7 @@ export class EventEffects {
 
     updateEvent= createEffect(() => this.actions$.pipe(
         ofType<UpdateEvent>( EventActionTypes.UPDATE_EVENT),
-        mergeMap((event)=>this.directorService.updateEvent(event.payload.id, event.payload)
+        mergeMap((event)=>this.directorService.updateEvent(event.payload)
         .pipe(
         map((event)=>({
             type:EventToUpdateTypes.DELETE_EVENT_TO_UPDATE,

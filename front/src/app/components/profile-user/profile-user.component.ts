@@ -62,7 +62,7 @@ export class ProfileUserComponent implements OnInit {
       if(this.objectsSignedEvents.length!=0){
         this.allEvents.forEach(event=>{
           this.objectsSignedEvents.forEach(object => {
-            if(event.id===object.event)
+            if(event.id===object.eventId)
               this.signedEvents.push(event);
           })
       })}
@@ -78,9 +78,9 @@ export class ProfileUserComponent implements OnInit {
   }
 
   signOutOfEvent(event: Event){
-    let idToDelete: number;
+    let idToDelete: string;
     this.objectsSignedEvents.forEach(signedEvent=>{
-      if(signedEvent.event===event.id && signedEvent.user===this.user.id){
+      if(signedEvent.eventId===event.id && signedEvent.userId===this.user.id){
         idToDelete=signedEvent.id
       }
     })

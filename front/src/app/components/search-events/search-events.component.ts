@@ -19,7 +19,7 @@ import { selectAllEventsSigned } from '../../store/selectors/events-signed-up.se
 })
 export class SearchEventsComponent implements OnInit {
   notSignedEvents: Event[]=[];
-  idsSignedEvents: number[]=[];
+  idsSignedEvents: string[]=[];
   
   allEvents: Event[]=[];
   filteredEvents: Event[]=[];
@@ -68,7 +68,7 @@ export class SearchEventsComponent implements OnInit {
     this.userInfo$.subscribe((user: User) => this.user={...user} );
 
     this.eventsSignedUp$.subscribe((events) =>{
-      events.forEach(eventSigned => this.idsSignedEvents.push(eventSigned.event))
+      events.forEach(eventSigned => this.idsSignedEvents.push(eventSigned.eventId))
     
    
     if(this.idsSignedEvents.length!=0){

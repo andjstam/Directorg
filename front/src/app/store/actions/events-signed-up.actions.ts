@@ -24,7 +24,7 @@ export class LoadEventsSignedUpSuccess implements Action {
 
 export class LoadEventsSignedUpForUser implements Action {
   readonly type = EventsSignedUpActionTypes.LOAD_EVENTS_SIGNED_UP_FOR_USER;
-  constructor(public idUser: number) {}
+  constructor(public idUser: string) {}
 }
 
 export class LoadEventsSignedUpForUserSuccess implements Action {
@@ -49,7 +49,7 @@ export class AddEventSignedUpSuccess implements Action {
 
 export class DeleteOneEventSignedUp implements Action {
   readonly type = EventsSignedUpActionTypes.DELETE_ONE_EVENT_SIGNED_UP;
-  constructor(public idObject: number) {}
+  constructor(public idObject: string) {}
 }
 
 

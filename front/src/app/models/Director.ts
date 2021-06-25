@@ -1,6 +1,6 @@
 
 export interface IDirector {
-    id: number;
+    id: string;
     name:string;
     surname:string;
     email: string;
@@ -8,7 +8,7 @@ export interface IDirector {
 }
 
 export class Director implements IDirector{
-    id: number;
+    id: string;
     name:string;
     surname:string;
     email: string;

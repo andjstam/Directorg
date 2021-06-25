@@ -24,7 +24,7 @@ export class UserInfoEffects {
     updateUser$=this.actions$.pipe(
         ofType<UpdateUserInfoAction>( UserInfoActionTypes.UPDATE_USER_INFO_ACTION),
         map((action) => action.payload),
-        mergeMap((user)=>this.userService.updateUser(user.id, user)
+        mergeMap((user)=>this.userService.updateUser(user)
     ))
   
     constructor(private actions$: Actions,

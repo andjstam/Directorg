@@ -12,44 +12,39 @@ import { IUser } from '../models/User';
 export class DirectorService {
 
   private baseUrl=environmentVariables.JSON_API_URL;
+  private backUrl=environmentVariables.BACK_URL;
 
   constructor(private http: HttpClient) { }
 
   getDirectorByEmail(email: string): Observable<IDirector>{
-    let url=this.baseUrl+`/director?email=${email}`;
+    let url=this.backUrl+`Director/GetDirectorByEmail?email=${email}`;
     return this.http.get<IDirector>(url);
   }
   
-  getEventsByDirectorsId( id: number): Observable<IEvent[]>{
-    let url=this.baseUrl+`/event?directorId=${id}`;
+  getEventsByDirectorsId( id: string): Observable<IEvent[]>{
+    let url=this.backUrl+`Event/GetEventsByDirectorsId?directorsId=${id}`;
     return this.http.get<IEvent[]>(url);
   }
 
   postEvent(oglas: Event):Observable<IEvent>{
-    let url=this.baseUrl+`/event`;
+    let url=this.backUrl+`Event/AddEvent`;
     return this.http.post<IEvent>(url,oglas);
   }
 
-  updateEvent(idOglasa: number, oglas: Event):Observable<IEvent>{
-    let url=this.baseUrl+`/event/${idOglasa}`;
+  updateEvent(oglas: Event):Observable<IEvent>{
+    console.log(oglas)
+    let url=this.backUrl+`Event/UpdateEvent`;
     return this.http.put<IEvent>(url,oglas);
   }
 
-  deleteEvent( eventId: number):Observable<IEvent>{
-    let url=this.baseUrl+`/event/${eventId}`;
+  deleteEvent( eventId: string):Observable<IEvent>{
+    let url=this.backUrl+`Event/DeleteEvent?idEvent=${eventId}`;
     return this.http.delete<IEvent>(url);
   }
 
   getAllUsers() : Observable<IUser[]>{
-    let url=this.baseUrl+"/user";
+    let url=this.backUrl+`User/GetAllUsers`;
     return this.http.get<IUser[]>(url);
   }
 
-  getSpecUser() : Observable<IUser>{
-    let url=this.baseUrl+"/user/4";
-    return this.http.get<IUser>(url);
-  }
-  
-  //da uzima predlozene korisnike za event
-  //metoda da update korisnika i da upise novog radnika
 }

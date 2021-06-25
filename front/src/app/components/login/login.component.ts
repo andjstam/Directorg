@@ -7,7 +7,7 @@ import { ShowNavService } from '../../services/show-nav.service';
 import { AppState } from '../../store';
 import { Store } from '@ngrx/store';
 import { Login } from '../../store/actions/auth.actions';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -52,9 +52,7 @@ export class LoginComponent implements OnInit {
     const provera=this.checkInput(this.email.value, this.password.value);
     if(provera){
       this.authService.checkIfUserValid(this.email.value, this.password.value)
-      .pipe( 
-        map(array=> array[0])
-      ).subscribe(value=>{
+      .subscribe(value=>{
         if(value!=undefined){
           this.errorMsg="";
           this.store.dispatch(new Login({user : value }));
@@ -77,5 +75,4 @@ export class LoginComponent implements OnInit {
         return false;
     else return true;
   }
-  
 }

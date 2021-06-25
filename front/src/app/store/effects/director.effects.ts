@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Actions, ofType, createEffect} from '@ngrx/effects';
 import { DirectorService } from 'src/app/services/director.service';
 import { DirectorActionTypes, NeedDirectorInfo } from '../actions/director.actions';
-import {  mergeMap, map } from 'rxjs/operators';
+import {  mergeMap, map, tap } from 'rxjs/operators';
 import { AppState } from '..';
 import { Store, select } from '@ngrx/store';
 
@@ -17,7 +17,7 @@ export class DirectorEffects {
         .pipe(
             map((user)=>({
                 type:DirectorActionTypes.GET_INFO_ACTION,
-                director:user[0]
+                director:user
             })))
         )
     ))

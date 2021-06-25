@@ -26,7 +26,6 @@ export class AppComponent  {
 
   ngOnInit(){
     this.showNavService.flagCurrent.subscribe(flag => this.showNavButtons=flag);
-    console.log("Show nav buttons: "+ this.showNavButtons);
   }
 
   logoutClicked(){
