@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andjela\\source\\repos\\DirectorgBaze\\back\\DirectorgBaze\\DirectorgBaze.csproj": {}
+    "C:\\Users\\Zeljko\\Desktop\\Sony4You\\Directorg\\Directorg\\back\\DirectorgBaze\\DirectorgBaze.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andjela\\source\\repos\\DirectorgBaze\\back\\DirectorgBaze\\DirectorgBaze.csproj": {
+    "C:\\Users\\Zeljko\\Desktop\\Sony4You\\Directorg\\Directorg\\back\\DirectorgBaze\\DirectorgBaze.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andjela\\source\\repos\\DirectorgBaze\\back\\DirectorgBaze\\DirectorgBaze.csproj",
+        "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\Sony4You\\Directorg\\Directorg\\back\\DirectorgBaze\\DirectorgBaze.csproj",
         "projectName": "DirectorgBaze",
-        "projectPath": "C:\\Users\\Andjela\\source\\repos\\DirectorgBaze\\back\\DirectorgBaze\\DirectorgBaze.csproj",
-        "packagesPath": "C:\\Users\\Andjela\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andjela\\source\\repos\\DirectorgBaze\\back\\DirectorgBaze\\obj\\",
+        "projectPath": "C:\\Users\\Zeljko\\Desktop\\Sony4You\\Directorg\\Directorg\\back\\DirectorgBaze\\DirectorgBaze.csproj",
+        "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zeljko\\Desktop\\Sony4You\\Directorg\\Directorg\\back\\DirectorgBaze\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Andjela\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

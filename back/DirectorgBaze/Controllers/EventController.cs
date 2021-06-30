@@ -1,11 +1,9 @@
-﻿using System;
-using System.Net;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using DirectorgBaze.Models;
 using DirectorgBaze.Repository;
-using DirectorgBaze.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace DirectorgBaze.Controllers
 {
@@ -15,9 +13,9 @@ namespace DirectorgBaze.Controllers
     {
         private readonly IEventRepository _repository;
 
-        public EventController(IEventRepository repo)
+        public EventController(IEventRepository repository)
         {
-            _repository = repo;
+            _repository = repository;
         }
 
         [HttpPost]
